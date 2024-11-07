@@ -1,20 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import React from 'react';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ padding: 20, gap: 40 }}>
+      <Text>App</Text>
+      <Button title='contoh button' />
+      <TouchableOpacity
+        onPress={() => alert('ini bisa diklik')}
+        style={styles.button}
+      >
+        <Text style={{ fontWeight: 'bold', color: '#fff' }}>
+          ini bisa diklik
+        </Text>
+      </TouchableOpacity>
+      <Pressable style={styles.button} onPress={() => alert('ini pressable')}>
+        <Text style={{ fontWeight: 'bold', color: '#fff' }}>ini pressable</Text>
+      </Pressable>
     </View>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  button: {
+    backgroundColor: '#000',
+    padding: 16,
+    borderRadius: 10,
     alignItems: 'center',
-    justifyContent: 'center',
+    elevation: 4,
   },
 });
